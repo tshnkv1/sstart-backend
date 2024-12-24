@@ -16,7 +16,6 @@ mongoose
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
-// Простой маршрут
 app.use('/api/auth', authRoutes);
 
 app.get('/', (req, res) => {
