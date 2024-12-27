@@ -8,7 +8,14 @@ const cors = require('cors');
 const app = express();
 
 // Middleware
-app.use(cors());
+// Настройка CORS
+const corsOptions = {
+  origin: ["http://localhost:3000", "https://sstart-frontend.vercel.app"], // Разрешённые источники
+  methods: ["GET", "POST", "PUT", "DELETE"], // Разрешённые методы
+  allowedHeaders: ["Content-Type", "Authorization"], // Разрешённые заголовки
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Подключение к MongoDB
