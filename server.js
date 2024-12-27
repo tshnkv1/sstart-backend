@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
+const developerRoutes = require('./routes/developerInfo');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -16,8 +17,11 @@ mongoose
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
-// Простой маршрут
+// auth
 app.use('/api/auth', authRoutes);
+
+// developer-info
+app.use('/api/developer-info', developerRoutes);
 
 app.get('/', (req, res) => {
   res.send('API is running');
